@@ -20,7 +20,7 @@ public class function {
 	static Scanner in = new Scanner(System.in);
 	Map<String,Integer> Map = new LinkedHashMap<String, Integer>(); 
     //显示词频和柱状图
-    void fund(Map<String, Integer> map){
+    void find(Map<String, Integer> map){
         System.out.println("请输入需要查询的单词 :");
         String string = in.nextLine();
         String[] word= string.split(",");
