@@ -19,9 +19,9 @@ import java.io.IOException;
 public class function { 
 	static Scanner in = new Scanner(System.in);
 	Map<String,Integer> Map = new LinkedHashMap<String, Integer>(); 
-    //ÏÔÊ¾´ÊÆµºÍÖù×´Í¼
+    //æ˜¾ç¤ºè¯é¢‘å’ŒæŸ±çŠ¶å›¾
     void fund(Map<String, Integer> map){
-        System.out.println("ÇëÊäÈëĞèÒª²éÑ¯µÄµ¥´Ê :");
+        System.out.println("è¯·è¾“å…¥éœ€è¦æŸ¥è¯¢çš„å•è¯ :");
         String string = in.nextLine();
         String[] word= string.split(",");
         float sum;
@@ -29,51 +29,60 @@ public class function {
         	for(Map.Entry<String,Integer> w : map.entrySet()) { 
         		if(word[i].equals(w.getKey()))
         		{  
-        			System.out.println("µ¥´Ê"+w.getKey() + "³öÏÖ" + w.getValue()+"´Î");
+        			System.out.println("å•è¯"+w.getKey() + "å‡ºç°" + w.getValue()+"æ¬¡");
         			sum=(float)(w.getValue())/500; 
         			for(int j=0;j<sum;j++){
-        				System.out.print("¨€");
+        				System.out.print("â–ˆ");
         			}
         			System.out.println();
         		}  
             } 
         }
     }
-    //ÅÅĞò 
-    void sort(Map<String, Integer> map) {  
+  //æ’åº 
+    void sort(Map<String, Integer> map,int a) {  
        Set<Entry<String,Integer>> m= map.entrySet();   
-       LinkedList<Entry<String, Integer>> List = new LinkedList<Entry<String,Integer>>(m);  
-       Collections.sort(List, new Comparator<Entry<String,Integer>>() {  
+       LinkedList<Entry<String, Integer>> List = new LinkedList<Entry<String,Integer>>(m);
+       if(a==2) {
+       Collections.sort(List, new Comparator<Entry<String,Integer>>() {     
            public int compare(Entry<String, Integer> a,  Entry<String, Integer> b) {  
                return b.getValue().compareTo(a.getValue());  
-           }  
-       });   
+          }     
+       });  
+       }
+       else if(a==3) {
+    	   Collections.sort(List, new Comparator<Entry<String,Integer>>() {     
+               public int compare(Entry<String, Integer> a,  Entry<String, Integer> b) {  
+                   return a.getKey().compareTo(b.getKey());  
+              }     
+           });  
+       }
        for(Entry<String,Integer> entry: List) {  
            Map.put(entry.getKey(), entry.getValue());  
        }  
    } 
-  //Êä³öÇ°n¸öµ¥´Ê
+  //è¾“å‡ºå‰nä¸ªå•è¯
      void print(Map<String, Integer> map) {  
-    	sort(map);
-        System.out.println("ÇëÊäÈë²é¿´µ¥´Ê¸öÊı£º");
+    	sort(mapï¼Œ2);
+        System.out.println("è¯·è¾“å…¥æŸ¥çœ‹å•è¯ä¸ªæ•°ï¼š");
         int n = in.nextInt();
         for(Entry<String,Integer> w : Map.entrySet()) {  
-            System.out.println("µ¥´Ê"+w.getKey() + "³öÏÖ" + w.getValue()+"´Î");  
+            System.out.println("å•è¯"+w.getKey() + "å‡ºç°" + w.getValue()+"æ¬¡");  
             n--;
             if(n<=0)	
             	break;
         } 
        
     }  
-    //ÅÅĞòĞ´Èëresult.txt
+    //æ’åºå†™å…¥result.txt
      void Sort(Map<String, Integer> map)throws IOException {  
-    	sort(map);
+    	sort(map,3);
         File file = new File("result.txt");
         FileWriter f = new FileWriter(file.getAbsoluteFile());
         for(Entry<String,Integer> w: Map.entrySet()) {
         	f.write(w.getKey() + "/" + w.getValue()+"     ");
         }
         f.close();
-        System.out.println("½áÊø£¡");
+        System.out.println("ç»“æŸï¼");
     }  
 }
