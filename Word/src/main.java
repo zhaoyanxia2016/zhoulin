@@ -41,7 +41,7 @@ public class main {
                 switch(w){
                     case 1:{
                     	function rs = new function();
-        				rs.fund(map);
+        				rs.find(map);
             	         }
             	         break;
                     case 2:{
