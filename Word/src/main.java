@@ -33,7 +33,7 @@ public class main {
             }
             System.out.println("chose function:");
             System.out.println("1:显示查询的单词词频");
-            System.out.println("2:输出指定的词频前N个单词");
+            System.out.println("2:输出词频最高的前N个单词");
             System.out.println("3:输出单词及词频到result.txt");
             System.out.println("0:退出");
             int w= in.nextInt();  
