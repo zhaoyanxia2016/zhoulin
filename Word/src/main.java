@@ -5,7 +5,8 @@ import java.util.Map;
 import java.util.Scanner; 
 import java.util.TreeMap;
 import java.io.IOException;
-public class main { 
+public class main 
+{ 
 	static Scanner in = new Scanner(System.in);
     public static void main(String[] args)throws IOException {  
     	// 读取要处理的文件
